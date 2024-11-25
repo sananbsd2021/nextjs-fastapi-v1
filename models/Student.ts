@@ -1,19 +1,19 @@
 import mongoose, { Schema, model, models, Document } from 'mongoose';
 
-interface IUser extends Document {
-  username: string;
-  password: string;
-  email: string;
+interface IStudent extends Document {
+  fristname: string;
+  lastname: string;
+  g_level: string;
   createdAt: Date;
 }
 
-const UserSchema = new Schema<IUser>({
-  username: { type: String, required: true },
-  password: { type: String, required: true },
-  email: { type: String },
+const StudentSchema = new Schema<IStudent>({
+  fristname: { type: String, required: true },
+  lastname: { type: String, required: true },
+  g_level: { type: String },
   createdAt: { type: Date, default: Date.now },
 });
 
-const User = models.User || model<IUser>('User', UserSchema);
+const Student = models.Student || model<IStudent>('Student', StudentSchema);
 
-export default User;
+export default Student;
